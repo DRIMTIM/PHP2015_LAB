@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+.login-form form button{
+	margin-top: 0;
+}
+.boton{
+	margin: 5%;
+}
+.imagePrice { 
+	width: 100%; /* for IE 6 */
+}
+.imagenPrecio > h4{
+	z-index: 1;
+	top: 70%;
+	right: 50%;
+	font-weight: bold;
+}
+.imagenPrecio > h5{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	z-index: 1;
+	top: 80%;
+	right: 50%;
+}
+.modalCompra{
+	width: 300pt;
+	height: 500pt;
+	margin-top: -20% !important;
+}
