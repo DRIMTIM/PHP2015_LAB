@@ -1,3 +1,5 @@
-<h1><?php echo $blog_heading; ?></h1>
-<p>This is a custom 404 error page.</p>
-<p>You can put whatever content you like here such as search for your site</p>
+<div class="text-center">
+  <h1 class="text-center" ><?php echo $mensaje; ?></h1>
+  <p class="text-center">La pagina que solicito no existe, verifique la url e intente nuevamente.</p>
+  <img src="<?php echo __ROOT_IMG . "/404/404.png"; ?>" class="text-center">
+</div>

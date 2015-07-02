@@ -15,17 +15,17 @@ class IndexController extends BaseController {
 		
 	public function index() {
 		/*** Cargo las categorias en el template para mostrarlas ***/
-	    $this->registry->template->categorias = $this->categoriasModel->getAll();
+		$this->registry->template->categorias = $this->categoriasModel->getAll();
+		/*** Cargo las ofertas recomendadas***/
+		$ofertasStock = $this->ofertasStockModel->getOfertasValidas();
+		$ofertasTemporales = $this->ofertasTemporalesModel->getOfertasDelDia();
+		$ofertasRecomendadas = array_merge($ofertasStock, $ofertasTemporales);
+		/*** Mezclo las ofertas ***/
+		shuffle($ofertasRecomendadas);
+		$this->registry->template->ofertasRecomendadas = $ofertasRecomendadas;
 	    /*** Cargo las ofertas en el template para mostrarlas ***/
-	    $this->registry->template->ofertasStock = $this->ofertasStockModel->getAll();
-	    $this->registry->template->ofertasTemporales = $this->ofertasTemporalesModel->getOfertasDelDia();
-	    /*** Cargo las ofertas recomendadas***/
-	    $ofertasStock = $this->ofertasStockModel->getOfertasValidas();
-	    $ofertasTemporales = $this->ofertasTemporalesModel->getOfertasDelDia();
-	    $ofertasRecomendadas = array_merge($ofertasStock, $ofertasTemporales);
-	    /*** Mezclo las ofertas ***/
-	    shuffle($ofertasRecomendadas);
-	    $this->registry->template->ofertasRecomendadas = $ofertasRecomendadas;
+	    $this->registry->template->ofertasStock = $ofertasStock;
+	    $this->registry->template->ofertasTemporales = $ofertasTemporales;
 		/*** load the index template ***/
 	    $this->registry->template->show('index');
 	}

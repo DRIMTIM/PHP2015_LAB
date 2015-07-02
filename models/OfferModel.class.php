@@ -1,6 +1,6 @@
 <?php
 class OfferModel extends AbstractModel{
-    
+
 	protected $id = NULL;
     protected $titulo = NULL;
     protected $imagen = NULL;
@@ -9,12 +9,12 @@ class OfferModel extends AbstractModel{
     protected $precio = NULL;
     protected $moneda = NULL;
     protected $activa = NULL;
-	
+
     public function __construct($registry){
     	parent::__construct($registry);
     	$this->table_name = TableNames::OFERTAS;
     }
-    
+
     public function findOffer($uriOferta){
     	if(!empty($uriOferta)){
     		$idOferta = GenericUtils::getInstance()->getIdFromUri($uriOferta);
@@ -27,10 +27,9 @@ class OfferModel extends AbstractModel{
     			default:
     				return $this->registry->db->where("id", $id)->getOne(TableNames::OFERTAS);
     		}
-    		
+
     	}
     	return null;
     }
-    
 }
 ?>

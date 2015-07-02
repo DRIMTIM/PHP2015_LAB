@@ -20,54 +20,63 @@
 		<?php if(empty($ticket)){ ?>
 			<form action="<?php echo __ROOT . "/product/realizarCompra"?>" method="post" class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title text-center"><?php echo $ofertaSeleccionada["titulo"];?></h3>
+					<h3 class="panel-title text-center"><?php if(count($errores) > 0){echo "Error!";}else{echo $ofertaSeleccionada["titulo"];}?></h3>
 				</div>
 				<div class="panel-body">
 					<?php if(count($errores) > 0){ ?>
 						<div class="alert alert-danger" role="alert">
 							<?php foreach ($errores as $error){echo $error;}?>
 						</div>	
-					<?php } ?>
-					<div>
-						<div class="product-image-wrapper">
-							<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="<?php echo $ofertaSeleccionada["imagen"];?>" alt="" />
-										<h2><?php echo Moneda::$SIMBOLOS[$ofertaSeleccionada["moneda"]] . $ofertaSeleccionada["precio"];?></h2>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
+					<?php } else{ ?>
+						<div>
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="<?php echo $ofertaSeleccionada["imagen"];?>" alt="" />
 											<h2><?php echo Moneda::$SIMBOLOS[$ofertaSeleccionada["moneda"]] . $ofertaSeleccionada["precio"];?></h2>
-											<?php if($ofertaSeleccionada["stock"] == null && $ofertaSeleccionada["fecha_fin"] != null){?>
-												<div id="__timeLimitOferta_<?php echo $ofertaSeleccionada["id"];?>" class="timeLimitOferta" data-countdown="<?php echo $ofertaSeleccionada["fecha_fin"];?>"></div>
-											<?php } else { ?>
-												<div>
-													Stock Disponible :
-													<?php echo $ofertaSeleccionada["stock"];?>
-													<?php if($ofertaSeleccionada["stock"] > 1){?>
-													Unidades
-													<?php } else {?>
-													Unidad
-													<?php } ?>
-												</div>
-											<?php } ?>
 										</div>
-									</div>
+										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2><?php echo Moneda::$SIMBOLOS[$ofertaSeleccionada["moneda"]] . $ofertaSeleccionada["precio"];?></h2>
+												<?php if($ofertaSeleccionada["stock"] == null && $ofertaSeleccionada["fecha_fin"] != null){?>
+													<div id="__timeLimitOferta_<?php echo $ofertaSeleccionada["id"];?>" class="timeLimitOferta" data-countdown="<?php echo $ofertaSeleccionada["fecha_fin"];?>"></div>
+												<?php } else { ?>
+													<div>
+														Stock Disponible :
+														<?php echo $ofertaSeleccionada["stock"];?>
+														<?php if($ofertaSeleccionada["stock"] > 1){?>
+														Unidades
+														<?php } else {?>
+														Unidad
+														<?php } ?>
+													</div>
+												<?php } ?>
+											</div>
+										</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php } ?>
 				</div>
 				<div class="panel-footer">
-					<div class="row">
-						<div class="boton pull-left">
-							<button type="submit" class="btn btn-default">Confirmar Compra</button>
-						</div>
-						<div class="boton pull-right">
+					<?php if(count($errores) > 0){ ?>
+						<div class="text-center">
 							<a href="<?php echo __ROOT?>">
-								<button type="button" class="btn btn-default" onclick="cancelarCompra();">Cancelar</button>
+								<button type="button" style="display:inherit;" class="btn btn-default">Aceptar</button>
 							</a>
 						</div>
-					</div>
+					<?php } else{ ?>
+						<div class="row">
+							<div class="boton pull-left">
+								<button type="submit" class="btn btn-default">Confirmar Compra</button>
+							</div>
+							<div class="boton pull-right">
+								<a href="<?php echo __ROOT?>">
+									<button type="button" class="btn btn-default" onclick="cancelarCompra();">Cancelar</button>
+								</a>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 			</form>
 		<?php } else {?>

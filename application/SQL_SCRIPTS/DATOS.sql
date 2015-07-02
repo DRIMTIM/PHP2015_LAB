@@ -61,3 +61,5 @@ INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (5, 7);
 INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (8, 8);
 INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (6, 9);
 INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (6, 10);
+
+INSERT INTO USUARIOS (nick, nombre, apellido, email, fechaNac, timeZone, celular, password, edad) VALUES ('JONAF2103', 'Jonathan', 'Franco', 'jonaf2103@gmail.com', '1991-03-21', 'GMT -3', '091076361', 'jona1234', 24);
