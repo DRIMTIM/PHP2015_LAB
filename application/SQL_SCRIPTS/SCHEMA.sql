@@ -41,7 +41,7 @@ OFERTAS(
 
     id bigint NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(40) NOT NULL,
-    imagen VARCHAR(100), 
+    imagen TEXT NOT NULL, 
     descripcion VARCHAR(200), 
     descripcion_corta VARCHAR(80),
     precio DECIMAL(19,2),
