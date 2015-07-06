@@ -9,6 +9,6 @@ class CategoryModel extends AbstractModel{
 		parent::__construct($registry);
     	$this->table_name = "CATEGORIAS";
     }
-	
+        
 }
 ?>

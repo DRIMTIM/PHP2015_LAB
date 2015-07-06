@@ -39,12 +39,12 @@ class UserModel extends AbstractModel{
 	}
 
 	public function obtenerUsuario($nick){
-		$usuario = $this->registry->db->where("nick", $nick)->get($this->table_name);
+		$usuario = $this->registry->db->where("nick", $nick)->getOne($this->table_name);
 		if(count($usuario) > 0){
 			//Formateo la fecha nac de salida
-			$usuario[0]["fechaNac"] = GenericUtils::getInstance()->getFormatDateOut($usuario[0]["fechaNac"]);
+			$usuario["fechaNac"] = GenericUtils::getInstance()->getFormatDateOut($usuario[0]["fechaNac"]);
 		}
-		return $usuario[0];
+		return $usuario;
 	}
 	
 	public function updateUsuario($idUsuario){

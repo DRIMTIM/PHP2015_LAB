@@ -15,6 +15,7 @@
 <link href="<?php echo __ROOT_CSS . 'jquery-ui-timepicker-addon.css'?>" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link href="<?php echo __ROOT_CSS . 'jquery.mCustomScrollbar.css'?>" rel="stylesheet">
+<link href="<?php echo __ROOT_CSS . 'bootstrap-table.css'?>" rel="stylesheet">
 <link rel="shortcut icon" href="<?php echo __ROOT_IMG . 'ico/favicon.ico'?>">
 <style type="text/css">
 	.search_box input {
@@ -27,10 +28,10 @@
 	  height: 35px;
 	  outline: medium none;
 	  padding-left: 10px;
-	  width: 155px;
+	  width: 400px;
 	  background-image: <?php echo 'url(' . __ROOT_IMG . 'home/searchicon.png)';?>;
 	  background-repeat: no-repeat;
-	  background-position: 130px;
+	  background-position: 378px;
 	}
 </style>
 <link href="<?php echo __ROOT_CSS . 'style.css'?>" rel="stylesheet">
@@ -54,6 +55,10 @@
 <script src="<?php echo __ROOT_JS . 'utils.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'jquery.countdown.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'ajaxRequesters.js'?>"></script>
+<script src="<?php echo __ROOT_JS . 'bootstrap-table.js'?>"></script>
+<script type="text/javascript">
+	$(document).ready(function(){loadSearch();});
+</script>
 <title>Inicio | DT-Market</title>
 </head>
 <body>	
@@ -109,13 +114,15 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="<?php echo __ROOT;?>" class="active">Inicio</a></li>
-								<li><a href="">Contacto</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<form id="form_search" action="product/compraConfirm" method="GET">
+								<input id="busqueda_ofertas" type="text" placeholder="Buscar Ofertas" size="30"/>
+								<input id="input_oferta_search" type="hidden" name="oferta">
+							</form>
 						</div>
 					</div>
 				</div>

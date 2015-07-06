@@ -76,11 +76,10 @@
 							foreach ($categorias as $categoria){ ?>
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a href="#" style="font-size:70%;"><?php echo $categoria["nombre"];?></a></h4>
+										<h4 class="panel-title"><a href="<?php echo __ROOT . "/product/categoria?categoria=" . $categoria["id"]; ?>" style="font-size:70%;"><?php echo $categoria["nombre"];?></a></h4>
 									</div>
 								</div>
-						<?php } 
-							}else{ ?>
+						<?php } }else{ ?>
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="#" style="font-size:70%;">No existen categorías disponibles!</a></h4>
@@ -103,6 +102,7 @@
 					$(document).ready(function(){
 						setInterval(refreshOfertasDelDia, parseInt('<?php echo GlobalConstants::$UPDATE_OFERTAS_TIMEOUT;?>'));
 						setInterval(refreshOfertasRecomendadas, parseInt('<?php echo GlobalConstants::$UPDATE_OFERTAS_TIMEOUT;?>'));
+						setInterval(loadSearch, parseInt('<?php echo GlobalConstants::$UPDATE_OFERTAS_SEARCH;?>'));
 					});
 				</script>
 			</div>

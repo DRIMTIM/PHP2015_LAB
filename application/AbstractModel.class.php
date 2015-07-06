@@ -62,7 +62,12 @@ abstract class AbstractModel {
   
   public function getAll(){
   	$items = $this->registry->db->get($this->table_name);
-  	return $items;
+  	$itemsWhitUris = array();
+  	foreach ($items as $item){
+  		$item["id"] = GenericUtils::getInstance()->generateUri($item["id"], $this->table_name);
+  		array_push($itemsWhitUris, $item);
+  	}
+  	return $itemsWhitUris;
   }
   
 }

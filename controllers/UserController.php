@@ -10,7 +10,7 @@ class UserController extends BaseController {
 	}
 	
 	public function index() {
-        $this->registry->template->show('user/index');
+        $this->registry->template->showOther('index');
 	}
 
 	public function signin(){

@@ -24,6 +24,23 @@
 }
 .modalCompra{
 	width: 300pt;
-	height: 500pt;
-	margin-top: -20% !important;
+	height: 300pt;
+	margin-top: -150pt !important;
+	margin-bottom: 100pt !important;
+}
+.tablaCompras{
+	text-align: center;
+	width: 80%;
+	height: 80%;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+.imagenSearch{
+	width: 30pt;
+	height: 30pt;
+}
+.item-desc{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 80%;
 }

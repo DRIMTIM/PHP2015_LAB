@@ -13,7 +13,7 @@
 									<h2><?php echo Moneda::$SIMBOLOS[$ofertaTemporal["moneda"]] . $ofertaTemporal["precio"];?></h2>
 									<p><?php echo $ofertaTemporal["titulo"];?></p>
 									<p class="timeLimitOferta" data-countdown="<?php echo $ofertaTemporal["fecha_fin"];?>"></p>
-									<a href="#" class="btn btn-default add-to-cart" onclick="comprarOferta(<?php echo $ofertaTemporal["id"];?>);"><i class="fa fa-shopping-cart"></i>Comprar</a>
+									<a href="#" class="btn btn-default add-to-cart" onclick="comprarOferta('<?php echo $ofertaTemporal["id"];?>');"><i class="fa fa-shopping-cart"></i>Ver Oferta</a>
 								</div>
 							</div>
 					</div>

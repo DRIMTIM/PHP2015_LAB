@@ -5,9 +5,7 @@
 			<ul class="nav navbar-nav">
 				<?php 
 					if($_SESSION[__USER] !== null){?>
-					<li><a href="#"><i class="fa fa-star"></i> Lista de deseos</a></li>
-					<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-					<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carro</a></li>
+					<li><a href="<?php echo __ROOT . "/product/consultaCompras"?>"><i class="fa fa-shopping-cart"></i> Compras Realizadas</a></li>
 					<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> Cuenta</a></a>
 			          <ul class="dropdown-menu" role="menu">

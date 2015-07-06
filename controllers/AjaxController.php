@@ -4,11 +4,13 @@ class AjaxController extends BaseController {
 
 	private $ofertasTemporalesModel = NULL;
 	private $ofertasStockModel = NULL;
+	private $ofertasModel = NULL;
 	
 	public function __construct($registry){
 		parent::__construct($registry);
 		$this->ofertasTemporalesModel = new TemporalOfferModel($this->registry);
 		$this->ofertasStockModel = new StockOfferModel($this->registry);
+		$this->ofertasModel = new OfferModel($this->registry);
 	}
 	
 	public function index() {
@@ -48,6 +50,33 @@ class AjaxController extends BaseController {
 	public function quitarCompraActiva(){
 		$_SESSION[__COMPRA_ACTIVA] = null;
 		return $this->getOKMessage(GlobalConstants::$OK);
+	}
+	
+	public function loadOfertasForSearch(){
+		$ofertasDelDia = $this->ofertasTemporalesModel->getOfertasDelDia();
+		$ofertasStock = $this->ofertasStockModel->getOfertasValidas();
+		$ofertasComunes = $this->ofertasModel->getAll();
+		$ofertasForSearch = array();
+		$aux = array();
+		if(!empty($ofertasDelDia)){
+			foreach ($ofertasDelDia as $ofertaDelDia){
+				array_push($aux, $ofertaDelDia);
+			}
+		}
+		if(!empty($ofertasStock)){
+			foreach ($ofertasStock as $ofertaStock){
+				array_push($aux, $ofertaStock);
+			}
+		}
+		if(!empty($ofertasComunes)){
+			foreach ($ofertasComunes as $ofertaComun){
+				array_push($aux, $ofertaComun);
+			}
+		}
+		array_push($ofertasForSearch, $aux);
+		foreach ($ofertasForSearch as $ofertaForSearch){
+			echo json_encode($ofertaForSearch);
+		}
 	}
 	
 }

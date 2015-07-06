@@ -19,6 +19,8 @@ class GlobalConstants {
 	public static $sqlToJqueryDateFormat = "d/m/Y";
 	//Tiempo en minutos entre pools para refrescar las ofertas temporales
 	public static $UPDATE_OFERTAS_TIMEOUT = (1000 * 60) * 1;
+	//Tiempo en minutos entre pools para refrescar ofertas del search
+	public static $UPDATE_OFERTAS_SEARCH = (1000 * 60) * 1;
 	public static $URI_DRIM = "uriDrim=";
 	public static $ARROBA = "@";
 }

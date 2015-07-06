@@ -63,3 +63,9 @@ INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (6, 9);
 INSERT INTO CATEGORIAS_OFERTAS (id_categoria, id_oferta) VALUES (6, 10);
 
 INSERT INTO USUARIOS (nick, nombre, apellido, email, fechaNac, timeZone, celular, password, edad) VALUES ('JONAF2103', 'Jonathan', 'Franco', 'jonaf2103@gmail.com', '1991-03-21', 'GMT -3', '091076361', 'jona1234', 24);
+INSERT INTO ADMINISTRADORES (nick, nombre, apellido, email, pass) VALUES ('JONAF2103', 'Jonathan', 'Franco', 'jonaf2103@gmail.com', 'jona1234');
+
+/** Esto es para actualizar las fechas de las ofertas temporales para que queden en el rango del dia actual **/
+UPDATE OFERTAS_TEMPORALES SET fecha_inicio = CONCAT(CURDATE(), ' ' ,MAKETIME(0,0,0)), fecha_fin = CONCAT(CURDATE(), ' ' ,MAKETIME(23,59,59));
+/** Esto es para actualizar una oferta y que termine en el tiempo que le digamos a partir de la hora actual **/
+UPDATE OFERTAS_TEMPORALES OT SET fecha_inicio = CONCAT(CURDATE(), ' ' ,MAKETIME(0,0,0)), fecha_fin = ADDTIME(CONCAT(CURDATE(), ' ' ,CURTIME()), '0 0:0:30') WHERE OT.id = 1;

@@ -25,10 +25,21 @@
 											<img src="<?php echo $ofertaRecomendada["imagen"];?>" alt="" />
 											<h2><?php echo Moneda::$SIMBOLOS[$ofertaRecomendada["moneda"]] . $ofertaRecomendada["precio"];?></h2>
 											<p><?php echo $ofertaRecomendada["titulo"];?></p>
-											<?php if(!empty($ofertaRecomendada["fecha_inicio"]) && !empty($ofertaRecomendada["fecha_fin"])){?>
-												<p class="timeLimitOferta" data-countdown="<?php echo $ofertaRecomendada["fecha_fin"];?>"></p>
+											<?php if(GenericUtils::getInstance()->getTableNameFromUri($ofertaRecomendada["id"]) == TableNames::OFERTAS_TEMPORALES){?>
+												<div id="__timeLimitOfertaCompra_<?php echo $ofertaRecomendada["id"];?>" class="timeLimitOfertaCompra" data-countdown="<?php echo $ofertaRecomendada["fecha_fin"];?>"></div>
+											<?php } else if (GenericUtils::getInstance()->getTableNameFromUri($ofertaRecomendada["id"]) == TableNames::OFERTAS_STOCK){ ?>
+												<div>
+													Stock Disponible :
+													<?php echo $ofertaRecomendada["stock"];?>
+													<?php if($ofertaRecomendada["stock"] > 1){?>
+													Unidades
+													<?php } else {?>
+													Unidad
+													<?php } ?>
+												</div>
 											<?php } ?>
-											<a href="#" class="btn btn-default add-to-cart" onclick="comprarOferta(<?php echo $ofertaRecomendada["id"];?>);"><i class="fa fa-shopping-cart"></i>Comprar</a>
+											<br>
+											<a href="#" class="btn btn-default add-to-cart" onclick="comprarOferta('<?php echo $ofertaRecomendada["id"];?>');"><i class="fa fa-shopping-cart"></i>Ver Oferta</a>
 										</div>
 									</div>
 								</div>
@@ -37,8 +48,10 @@
 				</div>
 			<?php }} ?>
 		</div>
-		<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-		<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+		<?php if(count($ofertasRecomendadas) > 3){?>
+			<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+			<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+		<?php } ?>
 	</div>
 <?php } else {?>
 	<h4 class="text-center">No hay ofertas recomendadas en el sistema!</h4>
