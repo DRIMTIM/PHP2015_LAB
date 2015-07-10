@@ -16,7 +16,7 @@ class StockOfferModel extends OfferModel{
 				$items[$count]["id"] = GenericUtils::getInstance()->generateUri($items[$count]["id"], TableNames::OFERTAS_STOCK);
 			}
 		}
-		return $items;
+		return $this->mapImagesForList($items);
 	}
 	
 	public function getOfertasValidas(){
@@ -29,7 +29,7 @@ class StockOfferModel extends OfferModel{
 			}
 		}
 		
-		return $ofertasValidas;
+		return $this->mapImagesForList($ofertasValidas);
 	}
 	
 }

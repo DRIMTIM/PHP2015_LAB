@@ -9,7 +9,7 @@ class GlobalConstants {
 	//Formatos de fecha para el plugin de jquery
 	public static $jqueryDateFormat = "dd/mm/yy";
 	public static $jqueryTimeFormat = "HH:mm:ss";
-	public static $jqueryDateTimeFormat = "dd/mm/yy HH:mm:ss";
+	public static $jqueryDateTimeFormat = "dd/mm/yy H:i:s";
 	//Formatos de fecha para mysql
 	public static $sqlDateFormat = "Y-m-d";
 	public static $sqlTimeFormat = "H:i:s";
@@ -23,4 +23,13 @@ class GlobalConstants {
 	public static $UPDATE_OFERTAS_SEARCH = (1000 * 60) * 1;
 	public static $URI_DRIM = "uriDrim=";
 	public static $ARROBA = "@";
+	public static $GUION_BAJO = '_';
+	public static $FILE_SUPPORT_EXT = ".jpg,.jpeg,.png";
+	public static $FILE_SEPARATOR_FLAG = ';';
+	public static $DOT = '.';
+	public static $OPEN_BRACKET = '[';
+	public static $CLOSE_BRACKET = ']';
+	public static $DEFAULT_IMAGE_FOR_SHOW = 0;
+	public static $MODAL_COLOR_BACKGROUND = "#FE980F";
+	public static $MODAL_COLOR_BACKGROUND_ALPHA = 1;
 }

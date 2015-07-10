@@ -27,7 +27,7 @@ class TemporalOfferModel extends OfferModel{
 			}
 		}
 		
-		return $ofertasValidas;
+		return $this->mapImagesForList($ofertasValidas);
 	}
 	
 	public function getOfertasDelDia(){
@@ -38,7 +38,7 @@ class TemporalOfferModel extends OfferModel{
 				array_push($ofertasDelDia, $oferta);
 			}
 		}
-		return $ofertasDelDia;
+		return $this->mapImagesForList($ofertasDelDia);
 	}
 	
 	public function getAll(){
@@ -47,7 +47,7 @@ class TemporalOfferModel extends OfferModel{
 			$items[$count]["id"] = GenericUtils::getInstance()->generateUri($items[$count]["id"], TableNames::OFERTAS_TEMPORALES);
 			$items[$count]["precio"] = GenericUtils::getInstance()->roundPriceTwoDecimals($items[$count]["precio"]);
 		}
-		return $items;
+		return $this->mapImagesForList($items);
 	}
 	
 }

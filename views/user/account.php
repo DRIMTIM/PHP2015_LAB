@@ -106,8 +106,8 @@
 	$(document).ready(function(){
 		$("#modal_signin").easyModal({
 			autoOpen: true,
-			overlayOpacity: 0.3,
-			overlayColor: "#333",
+			overlayOpacity: <?php echo GlobalConstants::$MODAL_COLOR_BACKGROUND_ALPHA?>,
+			overlayColor: "<?php echo GlobalConstants::$MODAL_COLOR_BACKGROUND?>",
 			overlayClose: false,
 			closeOnEscape: false,
 			transitionIn: 'animated bounceInLeft',

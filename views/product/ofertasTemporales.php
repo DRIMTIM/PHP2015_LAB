@@ -4,7 +4,7 @@
 				<div class="product-image-wrapper">
 					<div class="single-products">
 							<div class="productinfo text-center">
-								<img src="<?php echo $ofertaTemporal["imagen"];?>" alt="" />
+								<img src="<?php echo $ofertaTemporal["imagen"][GlobalConstants::$DEFAULT_IMAGE_FOR_SHOW];?>" alt="" />
 								<h2><?php echo Moneda::$SIMBOLOS[$ofertaTemporal["moneda"]] . $ofertaTemporal["precio"];?></h2>
 								<p><?php echo $ofertaTemporal["titulo"];?></p>
 							</div>

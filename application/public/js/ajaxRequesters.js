@@ -56,7 +56,7 @@ function loadSearch(){
 	            				"<h6 class='pull-left item-desc'>" + 
 	            					item.label + 
             					"</h6>" +
-            					"<img src='" + item.data.imagen + "' class='imagenSearch pull-right'/>" +
+            					"<img src='" + item.data.imagen[0] + "' class='imagenSearch pull-right'/>" +
         					"</div>" +
 						"</a>")
 	            .appendTo(ul);

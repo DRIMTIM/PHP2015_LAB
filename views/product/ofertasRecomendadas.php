@@ -22,7 +22,7 @@
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="<?php echo $ofertaRecomendada["imagen"];?>" alt="" />
+											<img src="<?php echo $ofertaRecomendada["imagen"][GlobalConstants::$DEFAULT_IMAGE_FOR_SHOW];?>" alt="" />
 											<h2><?php echo Moneda::$SIMBOLOS[$ofertaRecomendada["moneda"]] . $ofertaRecomendada["precio"];?></h2>
 											<p><?php echo $ofertaRecomendada["titulo"];?></p>
 											<?php if(GenericUtils::getInstance()->getTableNameFromUri($ofertaRecomendada["id"]) == TableNames::OFERTAS_TEMPORALES){?>

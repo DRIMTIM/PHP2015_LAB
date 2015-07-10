@@ -24,9 +24,13 @@ class OfferModel extends AbstractModel{
     		switch ($tableName){
     			case TableNames::OFERTAS_STOCK:
     			case TableNames::OFERTAS_TEMPORALES:
-    				return $this->registry->db->join(TableNames::OFERTAS . " AS O", "O.id = AUX.id AND O.id = " . $idOferta, "INNER")->getOne($tableName . " AS AUX");
+    				$oferta = $this->registry->db->join(TableNames::OFERTAS . " AS O", "O.id = AUX.id AND O.id = " . $idOferta, "INNER")->getOne($tableName . " AS AUX");
+    				$oferta = $this->mapImagesForList(array($oferta))[0];
+    				return $oferta;
     			default:
-    				return $this->registry->db->where("id", $idOferta)->getOne(TableNames::OFERTAS);
+    				$oferta = $this->registry->db->where("id", $idOferta)->getOne(TableNames::OFERTAS);
+    				$oferta = $this->mapImagesForList(array($oferta))[0];
+    				return $oferta;
     		}
 
     	}
@@ -42,6 +46,7 @@ class OfferModel extends AbstractModel{
     		if(empty($oferta)){
     			$oferta = $this->registry->db->where("id", $idOferta)->getOne(TableNames::OFERTAS);  			
     		}
+    		$oferta = $this->mapImagesForList(array($oferta))[0];
     		return $oferta;
     	}
     	return null;
@@ -66,7 +71,7 @@ class OfferModel extends AbstractModel{
     		$ofertaStock["id"] = GenericUtils::getInstance()->generateUri($ofertaStock["id"], TableNames::OFERTAS_STOCK);
     		array_push($ofertasPorCategoria, $ofertaStock);
     	}
-    	return $ofertasPorCategoria;
+    	return $this->mapImagesForList($ofertasPorCategoria);
     }
     
     public function getAll(){
@@ -80,7 +85,20 @@ class OfferModel extends AbstractModel{
     			$items[$count]["id"] = GenericUtils::getInstance()->generateUri($items[$count]["id"], TableNames::OFERTAS);
     		}
     	}
-    	return $items;
+    	return $this->mapImagesForList($items);
+    }
+    
+    protected function mapImagesForList($items){
+    	$itemsToReturn = array();
+    	if(!empty($items)){
+    		foreach ($items as $item){
+    			if(!is_array($item["imagen"])){
+    				$item["imagen"] = explode(GlobalConstants::$FILE_SEPARATOR_FLAG, $item["imagen"]);
+    			}
+    			array_push($itemsToReturn, $item);
+    		}
+    	}
+    	return $itemsToReturn;
     }
     
 }

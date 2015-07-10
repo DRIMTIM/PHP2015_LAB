@@ -31,7 +31,7 @@
 										<button type="button" class="btn btn-default get" onclick="comprarOferta('<?php echo $ofertaStock["id"];?>');">Obtener Ahora</button>
 									</div>
 									<div class="col-sm-6">
-										<img src="<?php echo $ofertaStock["imagen"];?>" class="girl img-responsive" alt="" />
+										<img src="<?php echo $ofertaStock["imagen"][GlobalConstants::$DEFAULT_IMAGE_FOR_SHOW];?>" class="girl img-responsive" alt="" />
 										<div class="imagenPrecio">
 											<h4 class="pricing">En stock!</h4>
 											<h5 class="pricing"><?php echo Moneda::$SIMBOLOS[$ofertaStock["moneda"]] . $ofertaStock["precio"];?></h5>

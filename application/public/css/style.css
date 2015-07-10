@@ -44,3 +44,17 @@
 	text-overflow: ellipsis;
 	width: 80%;
 }
+.modalGaleria{
+	z-index: 3;
+	width: 400pt;
+	height: 350pt;
+	margin-top: -150pt !important;
+	margin-bottom: 100pt !important;
+}
+.imagenGaleria{
+	width: 200pt;
+	height: 200pt;
+}
+.botonGaleria{
+	display: inline-block !important;
+}

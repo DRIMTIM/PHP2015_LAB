@@ -12,8 +12,8 @@
 <link href="<?php echo __ROOT_CSS . 'animate.css'?>" rel="stylesheet">
 <link href="<?php echo __ROOT_CSS . 'main.css'?>" rel="stylesheet">
 <link href="<?php echo __ROOT_CSS . 'responsive.css'?>" rel="stylesheet">
+<link href="<?php echo __ROOT_CSS . 'jquery-ui.css'?>" rel="stylesheet">
 <link href="<?php echo __ROOT_CSS . 'jquery-ui-timepicker-addon.css'?>" rel="stylesheet">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link href="<?php echo __ROOT_CSS . 'jquery.mCustomScrollbar.css'?>" rel="stylesheet">
 <link href="<?php echo __ROOT_CSS . 'bootstrap-table.css'?>" rel="stylesheet">
 <link rel="shortcut icon" href="<?php echo __ROOT_IMG . 'ico/favicon.ico'?>">
@@ -50,7 +50,7 @@
 <script src="<?php echo __ROOT_JS . 'main.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'jquery.easyModal.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'jquery.mCustomScrollbar.js'?>"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="<?php echo __ROOT_JS . 'jquery-ui.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'jquery-ui-timepicker-addon.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'utils.js'?>"></script>
 <script src="<?php echo __ROOT_JS . 'jquery.countdown.js'?>"></script>
