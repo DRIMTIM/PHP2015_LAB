@@ -30,6 +30,6 @@ class GlobalConstants {
 	public static $OPEN_BRACKET = '[';
 	public static $CLOSE_BRACKET = ']';
 	public static $DEFAULT_IMAGE_FOR_SHOW = 0;
-	public static $MODAL_COLOR_BACKGROUND = "#FE980F";
+	public static $MODAL_COLOR_BACKGROUND = "#5F6468";
 	public static $MODAL_COLOR_BACKGROUND_ALPHA = 1;
 }

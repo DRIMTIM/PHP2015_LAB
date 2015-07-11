@@ -14,7 +14,7 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="<?php echo $ofertaSeleccionada["imagen"][GlobalConstants::$DEFAULT_IMAGE_FOR_SHOW];?>" alt="" />
+									<img src="<?php echo $ofertaSeleccionada["imagen"][GlobalConstants::$DEFAULT_IMAGE_FOR_SHOW];?>" class="imagenGaleria" />
 									<h2><?php echo Moneda::$SIMBOLOS[$ofertaSeleccionada["moneda"]] . $ofertaSeleccionada["precio"];?></h2>
 									<p><?php echo $ofertaSeleccionada["descripcion_corta"];?></p>
 									<?php if(GenericUtils::getInstance()->getTableNameFromUri($ofertaSeleccionada["id"]) == TableNames::OFERTAS_TEMPORALES){?>
@@ -34,7 +34,7 @@
 								<div class="product-overlay">
 									<div class="overlay-content">
 										<p><?php echo $ofertaSeleccionada["descripcion"];?></p>
-										<p><button type="button" class="btn btn-default botonGaleria" onclick="mostrarGaleria(true);">Galeria</button></p>
+										<p><button type="button" class="btn btn-default botonGaleria" onclick="mostrarGaleria(true);">Galería</button></p>
 									</div>
 								</div>
 							</div>
@@ -91,7 +91,7 @@
 	<?php if(empty($ticket)){?>
 		<form  class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title text-center">Imágenes</h3>
+				<h3 class="panel-title text-center">Galería</h3>
 			</div>
 			<div class="panel-body">
 				<div id="slider-carousel" class="carousel slide" data-ride="carousel">

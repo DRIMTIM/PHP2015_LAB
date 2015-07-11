@@ -42,7 +42,7 @@ class UserModel extends AbstractModel{
 		$usuario = $this->registry->db->where("nick", $nick)->getOne($this->table_name);
 		if(count($usuario) > 0){
 			//Formateo la fecha nac de salida
-			$usuario["fechaNac"] = GenericUtils::getInstance()->getFormatDateOut($usuario[0]["fechaNac"]);
+			$usuario["fechaNac"] = GenericUtils::getInstance()->getFormatDateOut($usuario["fechaNac"]);
 		}
 		return $usuario;
 	}

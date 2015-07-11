@@ -35,7 +35,7 @@ class ProductController extends BaseController {
 		foreach ($compras as $compra){
 			$ofertaComprada = $this->ofertasModel->findOfferById($compra["id_oferta"]);
 			$compra["oferta"] = $ofertaComprada;
-			$compra["fecha"] = GenericUtils::getInstance()->getFormatDateOut($compra["fecha"]);
+			$compra["fecha"] = GenericUtils::getInstance()->getFormatDateOutForCompras($compra["fecha"]);
 			array_push($comprasRealizadas, $compra);
 		}
 		$this->registry->template->compras = $comprasRealizadas;

@@ -73,17 +73,16 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-6">
+					<!-- <div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="<?php //echo __ROOT . "/user/loginSocial?provider=" . Providers::FACEBOOK; ?>"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="<?php //echo __ROOT . "/user/loginSocial?provider=" . Providers::TWITER; ?>"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="<?php //echo __ROOT . "/user/loginSocial?provider=" . Providers::LINKEDIN; ?>"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="<?php //echo __ROOT . "/user/loginSocial?provider=" . Providers::GOOGLE; ?>"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div><!--/header_top-->		
@@ -197,31 +196,6 @@
 							<p>Make by DRIMTIM Develop Team</p>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>About DRIMTIM</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Nuestro Equipo</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>About Market</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Tu email..." />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Dejanos tu opinion sobre nuestro sitio...</p>
-							</form>
-						</div>
-					</div>
-					
 				</div>
 			</div>
 		</div>

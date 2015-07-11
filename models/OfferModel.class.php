@@ -62,14 +62,32 @@ class OfferModel extends AbstractModel{
 	    	join(TableNames::CATEGORIAS_OFERTAS . " AS CO", "O.id = CO.id_oferta AND CO.id_categoria = " . $idCategoria, "INNER")->
 	    	join(TableNames::OFERTAS_STOCK . " AS OS", "O.id = OS.id", "INNER")->
 	    	get(TableNames::OFERTAS . " AS O");
+    	$ofertasNormales = $items = $this->registry->db->
+    		query("SELECT * FROM " . 
+    				TableNames::OFERTAS . " O WHERE NOT EXISTS (SELECT 1 FROM ". 
+    				TableNames::OFERTAS_STOCK . " OS WHERE O.id = OS.id) AND NOT EXISTS (SELECT 1 FROM " . 
+    				TableNames::OFERTAS_TEMPORALES . " OT WHERE O.id = OT.id) AND O.id = " . $idCategoria);
     	$ofertasPorCategoria = array();
     	foreach ($ofertasTemporales as $ofertaTemporal){
     		$ofertaTemporal["id"] = GenericUtils::getInstance()->generateUri($ofertaTemporal["id"], TableNames::OFERTAS_TEMPORALES);
-    		array_push($ofertasPorCategoria, $ofertaTemporal);
+    		if(!GenericUtils::getInstance()->isOld($ofertaTemporal["fecha_fin"]) &&
+    				GenericUtils::getInstance()->isOld($ofertaTemporal["fecha_inicio"]) &&
+    				GenericUtils::getInstance()->isTodayInterval($ofertaTemporal["fecha_inicio"], $ofertaTemporal["fecha_fin"]) &&
+    				$ofertaTemporal["activa"] == true){
+    					array_push($ofertasPorCategoria, $ofertaTemporal);
+    		}
     	}
     	foreach ($ofertasStock as $ofertaStock){
     		$ofertaStock["id"] = GenericUtils::getInstance()->generateUri($ofertaStock["id"], TableNames::OFERTAS_STOCK);
-    		array_push($ofertasPorCategoria, $ofertaStock);
+    		if($ofertaStock["activa"] == true && $ofertaStock["stock"] > 0){
+    			array_push($ofertasPorCategoria, $ofertaStock);
+    		}
+    	}
+    	foreach ($ofertasNormales as $ofertaNormal){
+    		$ofertaNormal["id"] = GenericUtils::getInstance()->generateUri($ofertaNormal["id"], TableNames::OFERTAS);
+    		if($ofertaNormal["activa"] == true){
+    			array_push($ofertasPorCategoria, $ofertaNormal);
+    		}
     	}
     	return $this->mapImagesForList($ofertasPorCategoria);
     }

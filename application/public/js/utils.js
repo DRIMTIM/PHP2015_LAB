@@ -27,7 +27,11 @@ function buildCountDown(){
 			$this.html(event.strftime('Termina en : %H:%M:%S'));
 		}).on('finish.countdown', function(event) {
 			if(event.target.id){
-				showErrorsForOfferInForm("__tituloOfertaSeleccionada", "__bodyOfertaSeleccionada", "__footerOfertaSeleccionada", "Lo sentimos la oferta ha expirado!");
+				if(!isCategory){
+					showErrorsForOfferInForm("__tituloOfertaSeleccionada", "__bodyOfertaSeleccionada", "__footerOfertaSeleccionada", "Lo sentimos la oferta ha expirado!");
+				}else{
+					window.location.reload();
+				}
 			}
 		})
 	});

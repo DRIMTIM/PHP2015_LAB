@@ -9,7 +9,6 @@
 				<table data-toggle="table" id="table-style" data-row-style="rowStyle" >
 					<thead>
 						<tr>
-							<th data-align="right" ></th>
 							<th><b>Fecha</b></th>
 							<th><b>Oferta</b></th>
 							<th><b>Numero de Ticket</b></th>
@@ -18,11 +17,6 @@
 					<tbody>
 						<?php foreach ($compras as $compra){ ?>
 								<tr>
-									<td>
-										<a style="cursor: pointer" onclick="findCompraById(<?php echo $compra["id"];?>)">
-											<span class="glyphicon glyphicon-edit"></span>
-										</a>
-									</td>
 									<td><?php echo $compra["fecha"];?></td>
 									<td><?php echo $compra["oferta"]["titulo"];?></td>
 									<td><?php echo $compra["ticket"];?></td>
@@ -58,8 +52,8 @@
 	$(document).ready(function(){
 		$("#modal_compras").easyModal({
 			autoOpen: true,
-			overlayOpacity: 0.3,
-			overlayColor: "#333",
+			overlayOpacity: <?php echo GlobalConstants::$MODAL_COLOR_BACKGROUND_ALPHA?>,
+			overlayColor: "<?php echo GlobalConstants::$MODAL_COLOR_BACKGROUND?>",
 			overlayClose: false,
 			closeOnEscape: false,
 			transitionIn: 'animated bounceInLeft',

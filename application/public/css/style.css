@@ -23,7 +23,7 @@
 	right: 50%;
 }
 .modalCompra{
-	width: 300pt;
+	width: 500pt;
 	height: 300pt;
 	margin-top: -150pt !important;
 	margin-bottom: 100pt !important;
@@ -57,4 +57,12 @@
 }
 .botonGaleria{
 	display: inline-block !important;
+}
+.productinfo > img{
+	width: 100pt;
+	height: 100pt;
+}
+.imagenDestacada{
+	width: 400t;
+	height: 200pt;
 }

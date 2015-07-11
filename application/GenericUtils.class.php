@@ -88,6 +88,16 @@ class GenericUtils {
 		return $newDate;
 	}
 	/**
+	 * Formatea un String de fecha de salida para transformarlo en un formato valido del plugin de jquery.
+	 * @param unknown $strDate Date String de entrada
+	 * @return String formateado a el formato de la app
+	 */
+	public function getFormatDateOutForCompras($strDate){
+		$timeStamp = strtotime($strDate);
+		$newDate = date(GlobalConstants::$sqlToJqueryDateTimeFormat, $timeStamp);
+		return $newDate;
+	}
+	/**
 	 * 
 	 * @param unknown $strDate String de fecha de entrada a validar.
 	 * @return boolean retorna true si el string de fecha cumple con el patron de fecha, retorna false en caso contrario.

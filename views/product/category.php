@@ -1,11 +1,13 @@
+<script type="text/javascript">var isCategory = true;</script>
 <div id="modal_categoria" class="mCustomScrollbar login-form">
-	<form class="panel panel-default" style="width: 60%;">
+	<form class="panel panel-default">
 		<div class="panel-heading">
 			<span class="glyphicon glyphicon-th-list"></span>
 			<b>Categoria</b>
 		</div>
 		<div class="panel-body">
-			<?php if(!empty($ofertas)){ 
+			<?php 
+				if(!empty($ofertas)){ 
 				$ofertasRecomendadas = $ofertas; 
 				include 'ofertasRecomendadas.php'; 
 			}else{ ?>
