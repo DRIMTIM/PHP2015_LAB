@@ -130,8 +130,3 @@ CREATE TRIGGER TRG_COMPRAS_TICKET BEFORE INSERT ON COMPRAS
   END;
 
 | delimiter ;
-
-ALTER TABLE USUARIOS ADD hybridauth_provider_name VARCHAR(255) NOT NULL COMMENT 'Provider name';
-ALTER TABLE USUARIOS ADD hybridauth_provider_uid VARCHAR(255) NOT NULL COMMENT 'Provider user ID';
- 
-CREATE UNIQUE INDEX hybridauth_idx ON USUARIOS (hybridauth_provider_name, hybridauth_provider_uid);

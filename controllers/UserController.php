@@ -24,55 +24,7 @@ class UserController extends BaseController {
 	public function closeAccount(){
 		$this->registry->template->show('user/closeAccount');
 	}
-	public function loginSocial(){
-		// the selected provider
-		$provider_name = $_REQUEST["provider"];
-		
-		try
-		{
-			// inlcude HybridAuth library
-			// change the following paths if necessary
-			$config   = __SITE_PATH . '/includes/library/config.php';
-			require_once( "includes/library/Hybrid/Auth.php" );
-		
-			// initialize Hybrid_Auth class with the config file
-			$hybridauth = new Hybrid_Auth( $config );
-		
-			// try to authenticate with the selected provider
-			$adapter = $hybridauth->authenticate( $provider_name );
-		
-			// then grab the user profile
-			$user_profile = $adapter->getUserProfile();
-		}
-		
-		// something went wrong?
-		catch( Exception $e )
-		{
-			$this->index();
-			return;
-		}
-		
-		// check if the current user already have authenticated using this provider before
-		$user_exist = get_user_by_provider_and_id( $provider_name, $user_profile->identifier );
-		
-		// if the used didn't authenticate using the selected provider before
-		// we create a new entry on database.users for him
-		if( ! $user_exist )
-		{
-			create_new_hybridauth_user(
-					$user_profile->email,
-					$user_profile->firstName,
-					$user_profile->lastName,
-					$provider_name,
-					$user_profile->identifier
-			);
-		}
-		
-		// set the user as connected and redirect him
-		$_SESSION["user_connected"] = true;
-		
-		$this->index();
-	}
+	
 	public function login($errores){
 		if(count($errores) > 0){
 			$this->registry->template->errores = $errores;
